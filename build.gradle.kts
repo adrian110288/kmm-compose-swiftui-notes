@@ -5,7 +5,7 @@ plugins {
     kotlin("android").version("1.9.0").apply(false)
     kotlin("multiplatform").version("1.9.0").apply(false)
     id("com.squareup.sqldelight").version("1.5.4").apply(false)
-    id("com.google.dagger.hilt.android").version("2.41").apply(false)
+    id("com.google.dagger.hilt.android").version("2.47").apply(false)
 }
 
 tasks.register("clean", Delete::class) {
