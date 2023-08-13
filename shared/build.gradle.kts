@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.squareup.sqldelight")
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -28,9 +29,23 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(libs.sqldelight.runtime)
+                implementation(libs.jetbrains.kotlinx.datetime)
             }
         }
+
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.android.driver)
+            }
+        }
+
+        val iosMain by getting {
+            dependencies {
+                implementation(libs.native.driver)
+            }
+        }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
