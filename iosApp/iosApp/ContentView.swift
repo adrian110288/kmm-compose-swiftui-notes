@@ -2,11 +2,15 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeting().greet()
+    
+    private let databaseModule = DatabaseModule()
 
 	var body: some View {
-		Text(greet)
-	}
+        
+        NavigationView {
+            NoteListScreen(noteDataSource: databaseModule.noteDataSource)
+        }.accentColor(.black)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
